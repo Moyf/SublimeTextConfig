@@ -1,0 +1,41 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Advanced CSV",
+		"AdvancedNewFile",
+		"Alignment",
+		"ApplySyntax",
+		"AutoFileName",
+		"AutoHotkey",
+		"BracketHighlighter",
+		"Browser Refresh",
+		"ColorPicker",
+		"ConvertToUTF8",
+		"CTags",
+		"DocBlockr",
+		"ExpandRegion",
+		"Git",
+		"GitGutter",
+		"GitHub Flavored Markdown Preview",
+		"IMESupport",
+		"Jedi - Python autocompletion",
+		"Markdown Extended",
+		"Markdown Preview",
+		"Monokai - Spacegray",
+		"Package Control",
+		"PlainNotes",
+		"PlainTasks",
+		"SideBarEnhancements",
+		"SublimeREPL",
+		"SublimeTmpl",
+		"Theme - Flatland",
+		"Theme - Soda",
+		"Theme - Spacegray",
+		"Themr",
+		"WordCount"
+	]
+}

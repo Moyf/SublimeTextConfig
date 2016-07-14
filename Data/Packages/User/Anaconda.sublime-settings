@@ -1,0 +1,22 @@
+{
+
+    /*
+        If complete_parameters is true, anaconda will add function and class
+        parameters to its completions.
+
+        If complete_all_parameters is true, it will add all the possible
+        parameters, if it's false, it will add only required parameters
+    */
+    "complete_parameters": true,
+    "complete_all_parameters": true,
+
+    /*
+    Code linting 使用支持 pep8 标准的 PyLint 或者 PyFlakes。
+    因为我个人使用的是另外的 linting 工具，所以我会在 Anaconda 的配置文件 Anaconda.sublime-settings 中将 linting 完全禁用。
+    */
+    "anaconda_linting": false, 
+
+    // 忽略AutoFormat PEP8中E501的提示
+    "pep8_ignore":["E501"]
+
+}

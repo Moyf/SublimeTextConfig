@@ -1,0 +1,76 @@
+[
+
+  { 
+    "keys": ["Control+n"], 
+    "command": "advanced_new_file_new"}, 
+
+  // Copy file name
+  {
+    "keys": ["control+shift+c"],
+    "command": "copy_path_to_clipboard"
+  },
+  // Close all other tabs
+  {
+    "keys": ["control+alt+w"],
+    "command": "close_tabs"
+  }, 
+
+  // 使用快捷键去呼出 REPL 操作台
+	{
+		"keys":["f5"],
+		"caption": "SublimeREPL: Python - RUN current file",
+		"command": "run_existing_window_command", "args":
+		{
+			"id": "repl_python_run","file": "config/Python/Main.sublime-menu"
+		}
+	}, 
+  {
+    "keys":["ctrl+b"],
+    "caption": "SublimeREPL: Python - RUN current file",
+    "command": "run_existing_window_command", "args":
+    {
+      "id": "repl_python_run","file": "config/Python/Main.sublime-menu"
+    }
+  }, 
+
+  // 更改 tab 的行为
+  { "keys": ["ctrl+tab"], "command": "next_view" },
+  { "keys": ["ctrl+shift+tab"], "command": "prev_view" }, 
+
+  // Align 对齐
+  { "keys": ["ctrl+alt+a"], "command": "alignment" }, 
+
+  { "keys": ["ctrl+shift+space"], "caption": "ExpandRegion" }, 
+
+  // 新建文件
+  { "keys": ["ctrl+t"], "command": "new_file" },
+
+  // 使用快捷键 Ctrl-Alt-P 快速新建 Python 文档（借助 SublimeTmpl 的功能）
+  { "keys": ["ctrl+alt+p"], 
+    "command": "sublime_tmpl", 
+    "args": {"type": "python"} },
+
+  // 宏，用来快速将缩进转为2个空格
+  {
+    "keys": ["ctrl+alt+2"],
+    "command": "run_macro_file",
+    "args": {
+      "file": "Packages/User/ChangeAllIndentation_To2Sapces.sublime-macro"
+    }
+  },
+
+
+  // 宏，用来快速将缩进转为4个空格
+  {
+    "keys": ["ctrl+alt+=+4"],
+    "command": "run_macro_file",
+    "args": {
+      "file": "Packages/User/ChangeAllIndentation_To4Sapces.sublime-macro"
+    }
+  }, 
+
+
+  // 切换注释
+  { "keys": ["ctrl+;"], "command": "toggle_comment", "args": { "block": false } },
+
+]
