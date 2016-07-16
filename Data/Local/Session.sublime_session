@@ -1,0 +1,887 @@
+{
+	"folder_history":
+	[
+		"/E/NetEase/Codes/Python",
+		"/E/NetEase/Codes/AutoHotkey Scripts"
+	],
+	"last_version": 3114,
+	"last_window_id": 1,
+	"log_indexing": false,
+	"settings":
+	{
+	},
+	"windows":
+	[
+		{
+			"auto_complete":
+			{
+				"selected_items":
+				[
+					[
+						"ShiD",
+						"ShiftDown}	{ShiftDown}"
+					]
+				]
+			},
+			"buffers":
+			[
+				{
+					"file": "Python/160713_ChangeFileNameByTex.py",
+					"settings":
+					{
+						"buffer_size": 822,
+						"line_ending": "Windows"
+					}
+				},
+				{
+					"contents": "#NoEnv\n; Recommended for performance and compatibility with future AutoHotkey releases.\n; #Warn\n; Enable warnings to assist with detecting common errors.\n\nSendMode Input\n; Recommended for new scripts due to its superior speed and reliability.\nSetWorkingDir %A_ScriptDir%\n; Ensures a consistent starting directory.\nSetTitleMatchMode 2\n; 更改监视窗口的模式，2为：只要包含即可\n\n; 改变托盘图标\nMenu, Tray, Icon, HA_Icon.ico\n\n; -------------------------------------------------------------\n; 关闭特定窗口\n; -------------------------------------------------------------\nif WinExist(\"ahk_class YdNewsPopWnd\")\n  WinClose ; 关闭广告\nReturn\n\n\n; --------------------------------------------------------------\n; 对脚本本身的操作\n; --------------------------------------------------------------\n\n; 按住左键后按R重新载入脚本\n; ~LButton & r::Reload\n^+!r::Reload\n\n; 编辑脚本\n; ~LButton & e::Edit\n^!+e::Edit\n\n; 左键-S 或者 Alt-Shift-Ctrl-S 来切换脚本是否启用\n; ~LButton & s::Suspend, Toggle\n^!+s::Suspend, Toggle\n\n\n\n; 这样可以保存字符串嘿嘿，不用折腾什么按键啦！\n#t::\n  stringA := \"test: []【】,.，。！~`!·\"\n  ; 和 = 运算符一起使用时, 需要使用百分号来获取变量的内容.\n  MsgBox The string is  %stringA%\nReturn\n\n; 在 Sublime 内，使用 Alt-Shift-S 保存并重启脚本\n+!s::\n  if WinActive(\"ahk_exe Sublime Text.exe\")\n  {\n    Send, ^s\n    Reload\n  }\n  else {\n  }\nReturn\n\n; 在 Sublime 内，保存的同时重新加载脚本\n~^s::\n  if WinActive(\"ahk_exe Sublime Text.exe\")\n  {\n    Reload\n  }\nReturn\n\n+!c::\n  WinGetClass, class, A\n  ; MsgBox, The active window's class is \"%class%\".\n  ; Clipboard = %class%\nReturn\n\n; --------------------------------------------------------------\n; 字符串替换部分\n; --------------------------------------------------------------\n\n; 字符串替换的案例，自动将 btw 用 By the Way 替换（不需要后续字符）\n:*:btw::By the way\n::ftw::Free the whales\n;不加星号的话，则需要后续字符才替换\n\n\n; 番茄钟部分\n:*:p1::\n  potato := \"[番茄:1]`n\"\n  Clipboard = %potato%\n  Send, ^v\nReturn\n\n:*:p2::\n  potato := \"[番茄:2]`n\"\n  Clipboard = %potato%\n  Send, ^v\nReturn\n\n:*:p3::[番茄3]\n:*:p4::[番茄4]\n:*:p5::[番茄5]\n:*:p6::[番茄6]\n:*:p7::[番茄7]\n:*:p8::[番茄8]\n\n; ---------------------------------------\n; 在 Typora 中的特定字符替换\n\n  ; 快捷输入 Markdown 的代码模组\n  ; \"`\"是转义字符，想要输出本体必须写成 「``」\n  #IfWinActive ahk_exe Typora.exe\n  :*:ddd::{ASC 096}{ASC 096}{ASC 096}\n  :*:````::{ASC 096}\n\n  #IfWinActive\n; ---------------------------------------\n\n; 使用 ASC 码击键实现特殊字符的替换\n; 如果不用特定 ASC 字符的话，AHK 会自动识别成“敲击这个字符的按键”，中文语境下还是会输入中文符号\n\n; 中文语境下，连按两下“；”自动转为一个英文\";\"；\n:*:;;::{ASC 059}{ASC 032}\n; ASC 32 代表空格\n\n:*:``kk::{ASC 091}{ASC 093}{Left}\n\n/* ; 替换当前时间，不知怎的总和百度输入法中文状态冲突，暂时放弃。\n:*:``sj::\n  Send, {Esc}\n  Sleep, 1000\n  FormatTime, CurrentDateTime,, hh:mm\n  SendRaw [%CurrentDateTime%]\nReturn\n*/\n\n; --------------------------------------------------------------\n; 模拟 Mac 键盘的文字快捷键操作\n; --------------------------------------------------------------\n\n; 为了防止误操作，禁用左侧 Win 键呼出开始菜单的功能\n~LWin Up:: Return\n\n; 顺便禁用 Win-U 的功能，以免误操作\n#u::Return\n\n\n/*\n; ---------------------------------------\n; 临时：Audition 中大量插入标记用的键位修改\n  #IfWinActive ahk_exe Adobe Audition CC.exe\n\n  ; 向上滚=双击\n  WheelUp::Send, {LButton 2}\n\n  ; 向下滚=M键\n  WheelDown::Send, {m}\n\n  ; 组合键，左键先点击一下之后，移到终点位置按 F 执行\n  f::\n    Send, {Shift Down}\n    Send, {LButton}\n    Send, {Shift Up}\n    Sleep, 50\n    Send, {m}\n\n  Return\n\n  a::Send, {LButton}\n\n  !+s Up::\n    Send, {Alt}{f}\n    Send, {Down 12}\n    Send, {Enter}\n  Return\n\n  q::Send, {F3}\n\n*/\n\n; ---------------------------------------\n\n\n; ---------------------------------------\n; Mutant 的键位修改\n  #IfWinActive ahk_exe Mutant.exe\n\n  ; 判定是否启用双击的布尔值\n  AutoDoubleClick := True\n\n  ; 使用 Alt-D 切换双击开关（DoubleClick）\n  !d::\n    AutoDoubleClick := !AutoDoubleClick\n    ; MsgBox The Flag now is %AutoDoubleClick% .\n\n    ; ----显示开关信息提示----\n    #Persistent\n    ToolTip, DoubleClick: %AutoDoubleClick%\n    ; 设定一个定时器，时间到后关闭提示\n    SetTimer, RemoveToolTip, 500\n    Return\n\n    RemoveToolTip:\n    SetTimer, RemoveToolTip, Off\n    ToolTip\n    Return\n    ; ----完毕----\n\n  Return\n\n  ; 鼠标点击一下自动当双击用\n  ~LButton::\n    If (AutoDoubleClick)\n      Send, {LButton}\n    Else\n      Return\n  Return\n\n  ; 按一下B就自动添加到当前收藏夹（多按一下Enter）\n  ; ~b::Send, {Enter}\n  ^b::\n    Send, {Shift}\n    Send, b\n    Send, {Shift}\n    Send, {Enter}\n  Return\n\n\n  ; 上下行操作\n  #p::Send, {Up}\n  #n::Send, {Down}\n\n  #f::Send, {Right}\n  #b::Send, {Left}\n\n  ^m::\n    Send, {Shift}\n    Send, m\n    Send, {Shift}\n  Return\n\n\n  #IfWinActive\n; ---------------------------------------\n\n\n; ---------------------------------------\n; Sublime Text 的键位修改\n  #IfWinActive ahk_exe Sublime_text.exe\n\n  ; 左右字符/单词操作\n  #b::Send, {Left}\n  #!b::Send !{Left}\n  #+b::Send ^!{Left}\n\n  #f::Send, {Right}\n  #!f::Send !{Right}\n  #+f::Send ^!{Right}\n\n  ; 上下行操作\n  #p::Send, {Up}\n  #n::Send, {Down}\n\n\n  ; 句首/句末操作\n  #a::Send, {Home}\n  #e::Send, {End}\n\n  ; 多选词组操作，让 Alt-Shift-LEFT 功能与 Ctrl-Shift-LEFT 相同\n  !+Left::Send, ^+{Left}\n  !+Right::Send, ^+{Right}\n\n  ^Left::Send, {Home}\n  ^Right::Send, {End}\n\n  ^+Left::Send, +{Home}\n  ^+Right::Send, +{End}\n\n  !BS::Send, ^{BackSpace}\n  !Del::Send, ^{Delete}\n\n  #d::Send, {Delete}\n\n  #IfWinActive\n; ---------------------------------------\n\n\n; ---------------------------------------\n; Typora 的键位修改\n  #IfWinActive ahk_exe Typora.exe\n\n  ; 左右字符/单词操作\n  #b::Send, {Left}\n  #!b::Send !{Left}\n  #+b::Send ^!{Left}\n\n  #f::Send, {Right}\n  #!f::Send !{Right}\n  #+f::Send ^!{Right}\n\n  ; 上下行操作\n  #p::Send, {Up}\n  #n::Send, {Down}\n\n\n  ; 句首/句末操作\n  #a::Send, {Home}\n  #e::Send, {End}\n\n  ; 多选词组操作，让 Alt-Shift-LEFT 功能与 Ctrl-Shift-LEFT 相同\n  !+Left::Send, ^+{Left}\n  !+Right::Send, ^+{Right}\n\n  ^Left::Send, {Home}\n  ^Right::Send, {End}\n\n  ^+Left::Send, +{Home}\n  ^+Right::Send, +{End}\n\n  !BS::Send, ^{BackSpace}\n  !Del::Send, ^{Delete}\n\n  #d::Send, {Delete}\n\n  #IfWinActive\n; ---------------------------------------\n\n; ---------------------------------------\n; Evernote 的键位修改\n  #IfWinActive ahk_exe Evernote.exe\n\n  ; 左右字符/单词操作\n  #b::Send, {Left}\n  #!b::Send !{Left}\n  #+b::Send ^!{Left}\n\n  #f::Send, {Right}\n  #!f::Send !{Right}\n  #+f::Send ^!{Right}\n\n  ; 上下行操作\n  #p::Send, {Up}\n  #n::Send, {Down}\n\n\n  ; 句首/句末操作\n  #a::Send, {Home}\n  #e::Send, {End}\n\n  ; 多选词组操作，让 Alt-Shift-LEFT 功能与 Ctrl-Shift-LEFT 相同\n  !+Left::Send, ^+{Left}\n  !+Right::Send, ^+{Right}\n\n  ^Left::Send, {Home}\n  ^Right::Send, {End}\n\n  ^+Left::Send, +{Home}\n  ^+Right::Send, +{End}\n\n  !BS::Send, ^{BackSpace}\n  !Del::Send, ^{Delete}\n\n  #d::Send, {Delete}\n\n  #IfWinActive\n; ---------------------------------------\n\n\n; ---------------------------------------\n; BooguNote 的键位修改\n  #IfWinActive ahk_exe BooguNote.exe\n\n  ; 左右字符/单词操作\n  #b::Send, {Left}\n  #!b::Send !{Left}\n  #+b::Send ^!{Left}\n\n  #f::Send, {Right}\n  #!f::Send !{Right}\n  #+f::Send ^!{Right}\n\n  ; 上下行操作\n  #p::Send, {Up}\n  #n::Send, {Down}\n\n\n  ; 句首/句末操作\n  #a::Send, {Home}\n  #e::Send, {End}\n\n  ; 多选词组操作，让 Alt-Shift-LEFT 功能与 Ctrl-Shift-LEFT 相同\n  !+Left::Send, ^+{Left}\n  !+Right::Send, ^+{Right}\n\n  ^+Left::Send, +{Home}\n  ^+Right::Send, +{End}\n\n  !BS::Send, ^{BackSpace}\n  !Del::Send, ^{Delete}\n\n  #d::Send, {Delete}\n\n  #IfWinActive\n; ---------------------------------------\n\n\n; 按 Alt-X 用 Xyplorer 打开当前选择的目录\n#x::\n  ; This will select File->Open in Notepad:\n  ; WinMenuSelectItem,A, , 文件, XYplorer\n  Send, {Alt}{Down 5}{Enter}\n\nReturn\n\n#+c::\n  WinGetClass, class, A\n  MsgBox, The active window's class is \"%class%\".\nReturn\n\n\n\n\n; --------------------------------------------------------------\n; 运行特定的程序\n; --------------------------------------------------------------\n\n; Alt-E 打开资源管理器（库）\n!e::Run, ::{20D04FE0-3AEA-1069-A2D8-08002B30309D}\n; Explorer.exe\n\n\n; Alt-Shift-X 打开XYplorer\n!+x::\n  WinActivate, ahk_exe XYplorer.exe\nReturn\n\n\n; 用特定字符串打开指定程序\n::ever::\n  Run, Evernote.exe\n  WinActivate, ahk_exe Evernote.exe\nReturn\n\n; ::sub::\n;   Run, D:\\Apps\\Sublime Text\\sublime_text.exe\n;   WinActivate, ahk_exe sublime_text.exe\n; Return\n\n; :*:xx::\n;   WinActivate, ahk_exe XYplorer.exe\n; Return\n\n\n; 打开网页的范例，用 Win-I 触发\n#i::\n   run, http://www.google.com/\nReturn\n\n; --------------------------------------------------------------\n; 测试部分：\n; --------------------------------------------------------------\n\n; 激活现有的 notepad.exe 窗口或打开新窗口\n^!i::\n  if WinExist(\"ahk_exe notepad.exe\")\n  {\n    WinActivate, ahk_exe notepad.exe\n    MsgBox, \"Already Opened!\"\n  }\n\n  else if WinExist(\"ahk_exe sublime Text.exe\")\n  {\n    WinActivate, ahk_exe sublime Text.exe\n    MsgBox, \"Sublime Came!\"\n  }\n  else\n    MsgBox, No use!\nReturn\n\n/*\n; 打开记事本并录入文字\n^j::\n   MsgBox Wow!\n   MsgBox this is\n   Run, Notepad.exe\n   winactivate, 无标题 - 记事本\n   WinWaitActive, 无标题 - 记事本\n   send, 7 lines{!}{enter}\n   sendinput, inside the ctrl{+}j hotkey\nReturn\n*/\n\n/*\n; 用 Esc 键呼出消息框\nesc::\n   MsgBox Escape!!!!\nReturn\n*/\n\n\n; 这是个可运行的热键示例.  由于此热键含有颚化符（~）\n; 前缀，所以它本身的键击会被传递到活动窗口。; 因此，如果您键入 [btw（或其他某个匹配\n; 词组）到任意编辑器中，脚本会自动执行\n; 您选择的动作（例如替换键入的文本）：\n/*\n~[::\nInput, UserInput, V T5 L4 C, {enter}.{esc}{tab}, btw,otoh,fl,ahk,ca\nif (ErrorLevel = \"Max\")\n{\n  MsgBox, You entered \"%UserInput%\", which is the maximum length of text.\n  return\n}\nif (ErrorLevel = \"Timeout\")\n{\n  MsgBox, You entered \"%UserInput%\" at which time the input timed out.\n  return\n}\nif (ErrorLevel = \"NewInput\")\n  return\nIf InStr(ErrorLevel, \"EndKey:\")\n{\n  MsgBox, You entered \"%UserInput%\" and terminated the input with %ErrorLevel%.\n  return\n}\n; 否则，找到了匹配。\nif (UserInput = \"btw\")\n  Send, {backspace 4}by the way\nelse if (UserInput = \"otoh\")\n  Send, {backspace 5}on the other hand\nelse if (UserInput = \"fl\")\n  Send, {backspace 3}Florida\nelse if (UserInput = \"ca\")\n  Send, {backspace 3}California\nelse if (UserInput = \"ahk\")\n  Run, http://ahkscript.org\nreturn\n*/\n\n; 此热字串通过后面的命令把 \"]d\" 替换成当前日期和时间.\n:*:]d::\nFormatTime, CurrentDateTime,, M/d/yyyy h:mm tt  ; 看起来会像 9/1/2005 3:53 PM 这样\nSendInput %CurrentDateTime%\nreturn\n\n\n; 使用 #IfWinActive/Exist 指令可以让重映射仅在指定的窗口中有效. 例如：\n#IfWinActive ahk_class Notepad\na::b  ; 让 'a' 键到 'b' 键的映射仅在记事本中有效.\n#IfWinActive  ; 这里让后续的重映射和热键对所有窗口生效.\n\n\n\n; #如何让前缀按键执行它原来的功能, 而不是什么都不做?\n\n; 请参考下面的例子, 其中把 Numpad0 作为前缀键:\n; 注意，若直接作为前缀键（如下写法），则只按前缀键时将无响应\n;- Numpad0 & Numpad1::MsgBox, You pressed Numpad1 while holding down Numpad0.\n\n; 现在, 要让 Numpad0 在没有像上面那样用来触发热键时发送真正的 Numpad0 键击, 需要添加下面的热键:\n;- $Numpad0::Send, {Numpad0}\n; 使用前缀 $ 是为避免产生关于无效循环的警告对话框 (因为此热键 \"发送了它自己\"). 此外, 上述动作在 释放 此按键的时候发生.\n\n\n; ---------------------------------------\n; 在任务栏上滚动滚轮：增加/减小音量。\n#If MouseIsOver(\"ahk_class Shell_TrayWnd\")\nWheelUp::Send {Volume_Up 5}\nWheelDown::Send {Volume_Down 5}\n; 五倍速修改\n\nMouseIsOver(WinTitle) {\n  MouseGetPos,,, Win\n  return WinExist(WinTitle . \" ahk_id \" . Win)\n}\n\n\n; 动态热键. 需要示例 1.（滚轮调整音量）\n; 按住数字键盘+的情况下，加大改变速度\nNumpadAdd::\nHotkey, If, MouseIsOver(\"ahk_class Shell_TrayWnd\")\nif (doubleup := !doubleup)\n  Hotkey, WheelUp, DoubleUp\nelse\n  Hotkey, WheelUp, WheelUp\nreturn\n\nDoubleUp:\nSend {Volume_Up 20}\nreturn\n\n\n; ---------------------------------------\n\n\n\n\n\n\n\n; 获取当前窗口类\n/*\nWinGetClass, class, A\nMsgBox, The active window's class is \"%class%\".\n*/\n\n\n; # 发送井号键的 N 种方式\n\n/*\n; 1. 模拟 Alt+数字 的方式输入\nSend, {Alt Down}{Numpad3}{Numpad5}{Alt Up}  ; Send # Hash\n\n; 2. 使用 SendRaw 发送\nSendRaw, # <-- That's a hash!  ; Send # Hash\n\n; 3. 使用 {Raw} 前缀修饰\nSend, {Raw}#\n\n; 4. 在剪贴板中置入，再粘贴文本\nClipboard = #\nSend, ^v  ; Paste clipboard text\n\n; 5. 使用 {} 包围住本体 x\nSend, {#}\n*/\n\n\n\n\n/*\n\n方便好用的 AHK 宏？\n\nSetTitleMatchMode RegEx ;\n; Stuff to do when Windows Explorer is open\n;\n#IfWinActive ahk_class ExploreWClass|CabinetWClass\n  ; create new folder\n  ;\n  ^!n::Send !fwf\n\n  ; create new text file\n  ;\n  ^!t::Send !fwt\n\n  ; open 'cmd' in the current directory\n  ;\n  ^!c::\n    OpenCmdInCurrent()\n  return\n#IfWinActive\n\n; Opens the command shell 'cmd' in the directory browsed in Explorer.\n; Note: expecting to be run when the active window is Explorer.\n;\nOpenCmdInCurrent()\n{\n  WinGetText, full_path, A  ; This is required to get the full path of the file from the address bar\n\n  ; Split on newline (`n)\n  StringSplit, word_array, full_path, `n\n  full_path = %word_array1%   ; Take the first element from the array\n\n  ; Just in case - remove all carriage returns (`r)\n  StringReplace, full_path, full_path, `r, , all\n  full_path := RegExReplace(full_path, \"^Address: \", \"\") ;\n\n  IfInString full_path, \\\n  {\n    Run, cmd /K cd /D \"%full_path%\"\n  }\n  else\n  {\n    Run, cmd /K cd /D \"C:\\ \"\n  }\n}\n\n*/\n\n\n; ---------------------------------------\n/* 特定打开方式\n\n  ;将以下代码存为PathX.ahk\n\n  Clipboard:=\"\"\n  send ^c\n  clipwait\n  sleep,200\n  clipboard=%clipboard%  ; windows 复制的时候，剪贴板保存的是“路径”。\n  tooltip,%clipboard%\n  sleep,500\n  tooltip,\n  StringSplit, pos, clipboard,`.\n   ; 分解字符串函数 StringSplit，我们要把剪贴板的文字以“.”为分隔符进行分割\n  LastDot = % pos%pos0%   ; 较难，见小众解释\n  StepCount := StrLen(LastDot)   ;\n  StringRight, Extension, Clipboard, StepCount ; 取路径名中的文件扩展名\n\n  ; Reference:\n  ;1. 小众软件\n  ;2. ahk论坛\n\n\n\n  代码Part2：\n\n  ;将以下代码存为OpenWith.ahk并结合具体情况更改PathX的路径即可使用\n\n  ^1::\n  #Include D:\\My Documents\\AHK\\Often\\OpenWith\\PathX.ahk ;PathX的路径\n  IfEqual,Extension,mp3\n  {\n   Run,C:\\Program Files\\Windows Media Player\\wmplayer.exe %clipboard%\n  }\n  Return\n\n  ^2::\n  #Include D:\\My Documents\\AHK\\Often\\OpenWith\\PathX.ahk\n  IfEqual,Extension,mp3\n  {\n   Run,G:\\Portable\\Media Study Player 2.89\\Media_Study_Player.exe %clipboard%\n  }\n  Return\n\n  ; ---------------------------------------\n*/\n\n\n; ---------------------------------------\n/* 在鼠标为止显示一条悬浮信息\n  !b::\n    ToolTip, Multiline`nTooltip, 100, 150\n\n    ; 要让工具提示在一段时间后消失\n    ; 而不使用 Sleep 的方法 (它停止了当前线程):\n    #Persistent\n    ToolTip, Timed ToolTip`nThis will be displayed for 5 seconds.\n    SetTimer, RemoveToolTip, 5000\n    return\n\n    RemoveToolTip:\n    SetTimer, RemoveToolTip, Off\n    ToolTip\n    return\n  Return\n  */\n; ---------------------------------------\n",
+					"file": "AutoHotkey Scripts/HelloAHK.ahk",
+					"file_size": 16879,
+					"file_write_time": 131131145531886197,
+					"settings":
+					{
+						"buffer_size": 13294,
+						"line_ending": "Windows",
+						"scratch": true
+					}
+				}
+			],
+			"build_system": "Packages/Python/Python.sublime-build",
+			"build_system_choices":
+			[
+				[
+					[
+						[
+							"Packages/Python/Python.sublime-build",
+							""
+						],
+						[
+							"Packages/Python/Python.sublime-build",
+							"Syntax Check"
+						]
+					],
+					[
+						"Packages/Python/Python.sublime-build",
+						""
+					]
+				]
+			],
+			"build_varint": "",
+			"command_palette":
+			{
+				"height": 263.0,
+				"last_filter": "prefuser",
+				"selected_items":
+				[
+					[
+						"prefuser",
+						"Preferences: Settings - User"
+					],
+					[
+						"prefdef",
+						"Preferences: Settings - Default"
+					],
+					[
+						"prefer",
+						"Preferences: Key Bindings - Default"
+					],
+					[
+						"diff",
+						"Git: Diff Current File"
+					],
+					[
+						"w",
+						"Word Wrap: Toggle"
+					],
+					[
+						"word ",
+						"Word Wrap: Toggle"
+					],
+					[
+						"key bi",
+						"Preferences: Key Bindings - User"
+					],
+					[
+						"xml",
+						"Set Syntax: XML"
+					],
+					[
+						"html",
+						"Set Syntax: HTML"
+					],
+					[
+						"lua",
+						"Set Syntax: Lua"
+					],
+					[
+						"File: D",
+						"File: Delete"
+					],
+					[
+						"ymal",
+						"Set Syntax: YAML"
+					],
+					[
+						"syntax pyt",
+						"Set Syntax: Python"
+					],
+					[
+						"syntax c#",
+						"Set Syntax: C#"
+					],
+					[
+						"syntax ahk",
+						"Set Syntax: AutoHotkey"
+					],
+					[
+						"gitgutter",
+						"GitGutter: Compare Against Commit"
+					],
+					[
+						"prefus",
+						"Preferences: Settings - User"
+					],
+					[
+						"installpac",
+						"Package Control: Install Package"
+					],
+					[
+						"remove pack",
+						"Package Control: Remove Package"
+					],
+					[
+						"git branch",
+						"Git: Change Branch"
+					],
+					[
+						"git new tag",
+						"Git: New Tag"
+					],
+					[
+						"git add",
+						"Git: Add All"
+					],
+					[
+						"git",
+						"Git: Commit"
+					],
+					[
+						"git gutter",
+						"GitGutter: Show Comparing Against"
+					],
+					[
+						"gitgu",
+						"GitGutter: Compare Against Branch"
+					],
+					[
+						"removepa",
+						"Package Control: Remove Package"
+					],
+					[
+						"package remove",
+						"Package Control: Remove Package"
+					],
+					[
+						"new",
+						"Tasks: New"
+					],
+					[
+						"rename",
+						"File: Rename"
+					],
+					[
+						"new docu",
+						"Tasks: New document"
+					],
+					[
+						"sytax pla",
+						"Set Syntax: Plain Text"
+					],
+					[
+						"instal",
+						"Package Control: Install Package"
+					],
+					[
+						"del",
+						"File: Delete"
+					],
+					[
+						"themr:",
+						"Themr: List themes"
+					],
+					[
+						"install",
+						"Package Control: Install Package"
+					],
+					[
+						"remove pac",
+						"Package Control: Remove Package"
+					],
+					[
+						"syntax mark",
+						"Set Syntax: MultiMarkdown"
+					],
+					[
+						"syntax markd",
+						"Set Syntax: Markdown"
+					],
+					[
+						"therm",
+						"Themr: List themes"
+					],
+					[
+						"the",
+						"Themr: List themes"
+					],
+					[
+						"themr",
+						"Themr: List themes"
+					],
+					[
+						"key bind",
+						"Preferences: Key Bindings - Default"
+					],
+					[
+						"preference",
+						"Preferences: Settings - User"
+					],
+					[
+						"key bindingus",
+						"Preferences: Key Bindings - User"
+					],
+					[
+						"color",
+						"Color Picker"
+					],
+					[
+						"package list",
+						"Package Control: List Packages"
+					],
+					[
+						"package instal",
+						"Package Control: Install Package"
+					],
+					[
+						"package",
+						"Preferences: Browse Packages"
+					],
+					[
+						"C#",
+						"Set Syntax: C#"
+					],
+					[
+						"c#",
+						"Set Syntax: C#"
+					],
+					[
+						"key bin",
+						"Preferences: Key Bindings - Default"
+					],
+					[
+						"lisp",
+						"Set Syntax: Lisp"
+					],
+					[
+						"remove pa",
+						"Package Control: Remove Package"
+					],
+					[
+						"install ",
+						"Package Control: Install Package"
+					],
+					[
+						"syn li",
+						"Set Syntax: Lisp"
+					],
+					[
+						"package remove packa",
+						"Package Control: Remove Package"
+					],
+					[
+						"alignment ",
+						"Preferences: Alignment Key Bindings – Default"
+					],
+					[
+						"key",
+						"Preferences: Key Bindings - User"
+					],
+					[
+						"exp",
+						"ExpandRegion"
+					],
+					[
+						"expand",
+						"ExpandRegion"
+					],
+					[
+						"autofile",
+						"AutoFileName: Default Settings"
+					],
+					[
+						"instl",
+						"Package Control: Install Package"
+					],
+					[
+						"instla",
+						"Package Control: Install Package"
+					],
+					[
+						"instll",
+						"Package Control: Install Package"
+					],
+					[
+						"ahk",
+						"AutoHotkey - Compile"
+					],
+					[
+						"inst",
+						"Package Control: Install Package"
+					],
+					[
+						"alignment",
+						"Preferences: Alignment Key Bindings – Default"
+					],
+					[
+						"anf",
+						"ANF: New File"
+					],
+					[
+						"python",
+						"Anaconda: Goto Python object"
+					],
+					[
+						"anaconda",
+						"Anaconda: Run Current File Tests"
+					],
+					[
+						"anaconda: ",
+						"Anaconda: Autoformat PEP8 Errors"
+					],
+					[
+						"mark",
+						"Markdown Preview: Preview in Browser"
+					],
+					[
+						"intall",
+						"Package Control: Install Package"
+					],
+					[
+						"package in",
+						"Package Control: Install Package"
+					]
+				],
+				"width": 536.0
+			},
+			"console":
+			{
+				"height": 126.0,
+				"history":
+				[
+					"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+				]
+			},
+			"distraction_free":
+			{
+				"menu_visible": true,
+				"show_minimap": false,
+				"show_open_files": false,
+				"show_tabs": false,
+				"side_bar_visible": false,
+				"status_bar_visible": false
+			},
+			"expanded_folders":
+			[
+				"/E/NetEase/Codes/Python"
+			],
+			"file_history":
+			[
+				"/D/Apps/Sublime Text/Data/Packages/User/Preferences.sublime-settings",
+				"/E/Projects/160713_dm57_音效需求/output/normalized/namelist.txt",
+				"/E/NetEase/Codes/AutoHotkey Scripts/HelloAHK.ahk",
+				"/C/Users/hln4446/Desktop/normalized/namelist.txt",
+				"/E/NetEase/Documents/记录/160616_网易活动记录.boo",
+				"/D/Apps/Sublime Text/Data/Packages/Default/Default (Windows).sublime-keymap",
+				"/D/Apps/Sublime Text/Data/Packages/Default/Preferences.sublime-settings",
+				"/E/NetEase/Codes/GitHub/LearningGit/readme.txt",
+				"/D/Apps/Sublime Text/Data/Packages/User/Default (Windows).sublime-keymap",
+				"/D/Apps/Sublime Text/Data/Packages/User/Distraction Free.sublime-settings",
+				"/D/Apps/Sublime Text/Data/Packages/SideBarEnhancements/Side Bar.sublime-settings",
+				"/D/Apps/Sublime Text/Data/Packages/User/Side Bar.sublime-settings",
+				"/E/NetEase/Codes/Python/160713_ChangeFileNameByTex.py",
+				"/D/Apps/Sublime Text/Data/Packages/User/SideBarEnhancements/Open With/Side Bar.sublime-menu",
+				"/D/Apps/tool_full/neox-20160714-195609-0.dmp",
+				"/D/dm57/client/res/char/hero/10040/10040.gim",
+				"/E/NetEase/Codes/GitHub/SublimeTextConfig/README.md",
+				"/E/NetEase/Codes/GitHub/SublimeTextConfig/.gitignore",
+				"/E/NetEase/Codes/GitHub/SublimeTextConfig/Python.gitignore",
+				"/E/NetEase/Codes/GitHub/SublimeTextConfig/PackageControl.gitignore",
+				"/E/NetEase/Codes/GitHub/SublimeTextConfig/README (2).md",
+				"/D/Apps/Sublime Text/Data/Packages/User/Git.sublime-settings",
+				"/E/NetEase/Codes/GitHub/LearningGit/160714_NewLearningNote.md",
+				"/D/Apps/Sublime Text/Data/Packages/GitGutter/GitGutter.sublime-settings",
+				"/E/NetEase/Codes/GitHub/SublimeTextConfig/.git/sourcetreeconfig",
+				"/E/NetEase/Codes/GitHub/SublimeTextConfig/.git/config",
+				"/C/Users/hzhulei15/Desktop/TODO",
+				"/C/Users/hzhulei15/Desktop/testPlainTasks.txt",
+				"/D/Apps/Sublime Text/Data/Packages/PlainNotes/Notes.sublime-settings",
+				"/D/Apps/Sublime Text/Data/Packages/User/bh_core.sublime-settings",
+				"/E/NetEase/Codes/Python/160427_按文本批量重命名文件/0427_按给定文本批量重命名文件.py",
+				"/E/Test.md",
+				"/D/Apps/Sublime Text/Data/Packages/BracketHighlighter/bh_core.sublime-settings",
+				"/D/Apps/Sublime Text/Data/Packages/User/Serial Number",
+				"/D/Apps/Sublime Text/Data/Packages/User/SublimeTmpl/templates/python.tmpl",
+				"/D/Apps/Sublime Text/Data/Packages/SublimeTmpl/SublimeTmpl.sublime-settings",
+				"/D/Apps/Sublime Text/Data/Packages/User/ChangeAllIndentation_To2Sapces.sublime-macro",
+				"/D/Apps/Sublime Text/Data/Packages/User/ChangeAllIndentation_To4Sapces.sublime-macro",
+				"/E/NetEase/Codes/Python/160714_PackageTest_Tmpl.py",
+				"/D/Apps/Sublime Text/Data/Packages/SublimeTmpl/Default (Windows).sublime-keymap",
+				"/D/Apps/Sublime Text/Data/Packages/SublimeTmpl/Main.sublime-menu",
+				"/D/Apps/Sublime Text/Data/Packages/SublimeTmpl/Default.sublime-commands",
+				"/D/Apps/Sublime Text/Data/Packages/User/SublimeTmpl.sublime-settings",
+				"/E/NetEase/Codes/Python/Old/hello.py",
+				"/E/NetEase/Codes/Python/Old/names.txt",
+				"/E/NetEase/Codes/Python/Old/test.py",
+				"/D/Apps/Sublime Text/Data/Installed Packages/Package Control.sublime-package",
+				"/E/NetEase/Codes/AutoHotkey Scripts/AlwaysShowMousePosition.ahk",
+				"/E/NetEase/Codes/Python/160713_renameFilenameList.txt",
+				"/E/NetEase/Codes/Python/Old/changTheNames - Protype.py",
+				"/E/NetEase/Codes/Python/160713_GenerateNumSequence.py",
+				"/E/NetEase/Codes/Python/160713_Hello_MyNewSublime.md",
+				"/D/Apps/Sublime Text/Data/Packages/User/Base File.sublime-settings",
+				"/D/Apps/Sublime Text/Data/Packages/Alignment/Default (Windows).sublime-keymap",
+				"/D/Apps/Sublime Text/Data/Packages/Alignment/Base File.sublime-settings",
+				"/D/Apps/Sublime Text/Data/Packages/Terminal/Base File.sublime-settings",
+				"/D/Apps/Sublime Text/Data/Packages/ExpandRegion/ExpandRegion.sublime-settings",
+				"/E/NetEase/Codes/sublDailyCodeProject.sublime-project",
+				"/E/NetEase/Codes/sublDailyCodeProject.sublime-workspace",
+				"/D/Apps/Sublime Text/Data/Packages/User/ExpandRegion.sublime-settings",
+				"/D/Apps/Sublime Text/Data/Packages/AutoFileName/autofilename.sublime-settings",
+				"/E/Downloads/sublime_text_3114.win.optimize.x64/Data/Packages/Alignment/Base File.sublime-settings",
+				"/E/Downloads/sublime_text_3114.win.optimize.x64/Data/Packages/Alignment/Default (Windows).sublime-keymap",
+				"/E/Downloads/sublime_text_3114.win.optimize.x64/Data/Packages/User/Default (Windows).sublime-keymap",
+				"/E/Downloads/sublime_text_3114.win.optimize.x64/Data/Packages/User/Base File.sublime-settings",
+				"/E/Downloads/sublime_text_3114.win.optimize.x64/Data/Packages/User/AdvancedNewFile.sublime-settings",
+				"/E/Downloads/sublime_text_3114.win.optimize.x64/Data/Packages/Default/Default (Windows).sublime-keymap",
+				"/E/Downloads/sublime_text_3114.win.optimize.x64/Data/Packages/User/Preferences.sublime-settings",
+				"/E/Downloads/sublime_text_3114.win.optimize.x64/Data/Packages/Anaconda/Anaconda.sublime-settings",
+				"/E/Downloads/sublime_text_3114.win.optimize.x64/Data/Packages/User/Python.sublime-settings",
+				"/E/Downloads/sublime_text_3114.win.optimize.x64/Data/Packages/User/Anaconda.sublime-settings"
+			],
+			"find":
+			{
+				"height": 28.0
+			},
+			"find_in_files":
+			{
+				"height": 98.0,
+				"where_history":
+				[
+					""
+				]
+			},
+			"find_state":
+			{
+				"case_sensitive": false,
+				"find_history":
+				[
+					"Delay",
+					"1",
+					"su",
+					"\\",
+					"E:\\\\Projects\\\\160713_dm57_音效需求\\\\output\\\\normalized\\\\",
+					".wav",
+					"\\",
+					"draw",
+					"width",
+					"side.bar",
+					"evernote",
+					"印象",
+					"1",
+					"wrap",
+					"as",
+					"copy.*",
+					"copy.*as",
+					"copy_as",
+					"self_02",
+					"atk1",
+					"atk",
+					"unix",
+					"done",
+					"\\\"close\\\"\\:.*\\\"\\(",
+					"\\\"close\\\"\\:.*\\\"\\(\\\"",
+					"\\\"close\\\"\\:.*\\\"",
+					"ctrl+/",
+					"ctrl+",
+					":",
+					"*.",
+					"control+alt+p",
+					"control+alt",
+					"Send",
+					"        \n",
+					"Send",
+					"Return",
+					"\n; 顺便禁用 Win-U 的功能，以免误操作\n#u::Return      \n",
+					"ASC",
+					":*:",
+					"ddd",
+					"WinGetClass",
+					"Send",
+					"WinGetClass",
+					"e",
+					"Delay.*",
+					"ctrl_n",
+					"space"
+				],
+				"highlight": true,
+				"in_selection": false,
+				"preserve_case": false,
+				"regex": false,
+				"replace_history":
+				[
+					"\\\\",
+					"C:\\Users\\hln4446\\Desktop\\normalized\\",
+					"",
+					"\\\\",
+					"Delay 50"
+				],
+				"reverse": false,
+				"show_context": true,
+				"use_buffer2": true,
+				"whole_word": false,
+				"wrap": true
+			},
+			"groups":
+			[
+				{
+					"selected": 1,
+					"sheets":
+					[
+						{
+							"buffer": 0,
+							"file": "Python/160713_ChangeFileNameByTex.py",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 822,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										333,
+										333
+									]
+								],
+								"settings":
+								{
+									"apply_syntax_touched": true,
+									"bracket_highlighter.busy": false,
+									"bracket_highlighter.locations":
+									{
+										"close":
+										{
+										},
+										"icon":
+										{
+										},
+										"open":
+										{
+										},
+										"unmatched":
+										{
+										}
+									},
+									"bracket_highlighter.regions":
+									[
+										"bh_curly",
+										"bh_curly_center",
+										"bh_curly_open",
+										"bh_curly_close",
+										"bh_curly_content",
+										"bh_regex",
+										"bh_regex_center",
+										"bh_regex_open",
+										"bh_regex_close",
+										"bh_regex_content",
+										"bh_square",
+										"bh_square_center",
+										"bh_square_open",
+										"bh_square_close",
+										"bh_square_content",
+										"bh_single_quote",
+										"bh_single_quote_center",
+										"bh_single_quote_open",
+										"bh_single_quote_close",
+										"bh_single_quote_content",
+										"bh_angle",
+										"bh_angle_center",
+										"bh_angle_open",
+										"bh_angle_close",
+										"bh_angle_content",
+										"bh_double_quote",
+										"bh_double_quote_center",
+										"bh_double_quote_open",
+										"bh_double_quote_close",
+										"bh_double_quote_content",
+										"bh_round",
+										"bh_round_center",
+										"bh_round_open",
+										"bh_round_close",
+										"bh_round_content",
+										"bh_default",
+										"bh_default_center",
+										"bh_default_open",
+										"bh_default_close",
+										"bh_default_content",
+										"bh_c_define",
+										"bh_c_define_center",
+										"bh_c_define_open",
+										"bh_c_define_close",
+										"bh_c_define_content",
+										"bh_tag",
+										"bh_tag_center",
+										"bh_tag_open",
+										"bh_tag_close",
+										"bh_tag_content",
+										"bh_unmatched",
+										"bh_unmatched_center",
+										"bh_unmatched_open",
+										"bh_unmatched_close",
+										"bh_unmatched_content"
+									],
+									"is_init_dirty_state": false,
+									"origin_encoding": "UTF-8",
+									"syntax": "Packages/Python/Python.sublime-syntax"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 1,
+							"type": "text"
+						},
+						{
+							"buffer": 1,
+							"file": "AutoHotkey Scripts/HelloAHK.ahk",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 13294,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										1745,
+										1745
+									]
+								],
+								"settings":
+								{
+									"WordCount":
+									{
+										"changes": 0,
+										"count": 876,
+										"modified": false,
+										"selection": true,
+										"status": -1,
+										"syntax": "plain text"
+									},
+									"apply_syntax_touched": true,
+									"bracket_highlighter.busy": false,
+									"bracket_highlighter.locations":
+									{
+										"close":
+										{
+										},
+										"icon":
+										{
+										},
+										"open":
+										{
+										},
+										"unmatched":
+										{
+										}
+									},
+									"bracket_highlighter.regions":
+									[
+										"bh_curly",
+										"bh_curly_center",
+										"bh_curly_open",
+										"bh_curly_close",
+										"bh_curly_content",
+										"bh_square",
+										"bh_square_center",
+										"bh_square_open",
+										"bh_square_close",
+										"bh_square_content",
+										"bh_round",
+										"bh_round_center",
+										"bh_round_open",
+										"bh_round_close",
+										"bh_round_content",
+										"bh_double_quote",
+										"bh_double_quote_center",
+										"bh_double_quote_open",
+										"bh_double_quote_close",
+										"bh_double_quote_content",
+										"bh_tag",
+										"bh_tag_center",
+										"bh_tag_open",
+										"bh_tag_close",
+										"bh_tag_content",
+										"bh_regex",
+										"bh_regex_center",
+										"bh_regex_open",
+										"bh_regex_close",
+										"bh_regex_content",
+										"bh_single_quote",
+										"bh_single_quote_center",
+										"bh_single_quote_open",
+										"bh_single_quote_close",
+										"bh_single_quote_content",
+										"bh_unmatched",
+										"bh_unmatched_center",
+										"bh_unmatched_open",
+										"bh_unmatched_close",
+										"bh_unmatched_content",
+										"bh_default",
+										"bh_default_center",
+										"bh_default_open",
+										"bh_default_close",
+										"bh_default_content",
+										"bh_angle",
+										"bh_angle_center",
+										"bh_angle_open",
+										"bh_angle_close",
+										"bh_angle_content",
+										"bh_c_define",
+										"bh_c_define_center",
+										"bh_c_define_open",
+										"bh_c_define_close",
+										"bh_c_define_content"
+									],
+									"in_converting": true,
+									"is_init_dirty_state": false,
+									"origin_encoding": "UTF-8-SIG",
+									"revert_to_scratch": true,
+									"syntax": "Packages/AutoHotkey/AutoHotkey.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 1607.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 0,
+							"type": "text"
+						}
+					]
+				}
+			],
+			"incremental_find":
+			{
+				"height": 28.0
+			},
+			"input":
+			{
+				"height": 38.0
+			},
+			"layout":
+			{
+				"cells":
+				[
+					[
+						0,
+						0,
+						1,
+						1
+					]
+				],
+				"cols":
+				[
+					0.0,
+					1.0
+				],
+				"rows":
+				[
+					0.0,
+					1.0
+				]
+			},
+			"menu_visible": false,
+			"output.exec":
+			{
+				"height": 132.0
+			},
+			"output.find_results":
+			{
+				"height": 0.0
+			},
+			"output.git":
+			{
+				"height": 128.0
+			},
+			"pinned_build_system": "Packages/Python/Python.sublime-build",
+			"position": "0,0,1,-1,-1,-1,-1,1190,436,499,1462",
+			"project": "sublDailyCodeProject.sublime-project",
+			"replace":
+			{
+				"height": 52.0
+			},
+			"save_all_on_build": true,
+			"select_file":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"select_project":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"select_symbol":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"selected_group": 0,
+			"settings":
+			{
+			},
+			"show_minimap": true,
+			"show_open_files": true,
+			"show_tabs": true,
+			"side_bar_visible": false,
+			"side_bar_width": 212.0,
+			"status_bar_visible": true,
+			"template_settings":
+			{
+			},
+			"window_id": 1,
+			"workspace_name": "/E/NetEase/Codes/sublDailyCodeProject.sublime-workspace"
+		}
+	],
+	"workspaces":
+	{
+		"recent_workspaces":
+		[
+			"/E/NetEase/Codes/sublDailyCodeProject.sublime-workspace"
+		]
+	}
+}

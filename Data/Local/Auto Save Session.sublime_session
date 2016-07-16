@@ -1,0 +1,767 @@
+{
+	"folder_history":
+	[
+		"/E/NetEase/Codes/Python",
+		"/E/NetEase/Codes/AutoHotkey Scripts"
+	],
+	"last_version": 3114,
+	"last_window_id": 1,
+	"log_indexing": false,
+	"settings":
+	{
+	},
+	"windows":
+	[
+		{
+			"auto_complete":
+			{
+				"selected_items":
+				[
+					[
+						"ShiD",
+						"ShiftDown}	{ShiftDown}"
+					]
+				]
+			},
+			"buffers":
+			[
+				{
+					"contents": "",
+					"settings":
+					{
+						"buffer_size": 0,
+						"line_ending": "Windows"
+					}
+				}
+			],
+			"build_system": "Packages/Python/Python.sublime-build",
+			"build_system_choices":
+			[
+				[
+					[
+						[
+							"Packages/Python/Python.sublime-build",
+							""
+						],
+						[
+							"Packages/Python/Python.sublime-build",
+							"Syntax Check"
+						]
+					],
+					[
+						"Packages/Python/Python.sublime-build",
+						""
+					]
+				]
+			],
+			"build_varint": "",
+			"command_palette":
+			{
+				"height": 263.0,
+				"last_filter": "prefuser",
+				"selected_items":
+				[
+					[
+						"prefuser",
+						"Preferences: Settings - User"
+					],
+					[
+						"prefdef",
+						"Preferences: Settings - Default"
+					],
+					[
+						"prefer",
+						"Preferences: Key Bindings - Default"
+					],
+					[
+						"diff",
+						"Git: Diff Current File"
+					],
+					[
+						"w",
+						"Word Wrap: Toggle"
+					],
+					[
+						"word ",
+						"Word Wrap: Toggle"
+					],
+					[
+						"key bi",
+						"Preferences: Key Bindings - User"
+					],
+					[
+						"xml",
+						"Set Syntax: XML"
+					],
+					[
+						"html",
+						"Set Syntax: HTML"
+					],
+					[
+						"lua",
+						"Set Syntax: Lua"
+					],
+					[
+						"File: D",
+						"File: Delete"
+					],
+					[
+						"ymal",
+						"Set Syntax: YAML"
+					],
+					[
+						"syntax pyt",
+						"Set Syntax: Python"
+					],
+					[
+						"syntax c#",
+						"Set Syntax: C#"
+					],
+					[
+						"syntax ahk",
+						"Set Syntax: AutoHotkey"
+					],
+					[
+						"gitgutter",
+						"GitGutter: Compare Against Commit"
+					],
+					[
+						"prefus",
+						"Preferences: Settings - User"
+					],
+					[
+						"installpac",
+						"Package Control: Install Package"
+					],
+					[
+						"remove pack",
+						"Package Control: Remove Package"
+					],
+					[
+						"git branch",
+						"Git: Change Branch"
+					],
+					[
+						"git new tag",
+						"Git: New Tag"
+					],
+					[
+						"git add",
+						"Git: Add All"
+					],
+					[
+						"git",
+						"Git: Commit"
+					],
+					[
+						"git gutter",
+						"GitGutter: Show Comparing Against"
+					],
+					[
+						"gitgu",
+						"GitGutter: Compare Against Branch"
+					],
+					[
+						"removepa",
+						"Package Control: Remove Package"
+					],
+					[
+						"package remove",
+						"Package Control: Remove Package"
+					],
+					[
+						"new",
+						"Tasks: New"
+					],
+					[
+						"rename",
+						"File: Rename"
+					],
+					[
+						"new docu",
+						"Tasks: New document"
+					],
+					[
+						"sytax pla",
+						"Set Syntax: Plain Text"
+					],
+					[
+						"instal",
+						"Package Control: Install Package"
+					],
+					[
+						"del",
+						"File: Delete"
+					],
+					[
+						"themr:",
+						"Themr: List themes"
+					],
+					[
+						"install",
+						"Package Control: Install Package"
+					],
+					[
+						"remove pac",
+						"Package Control: Remove Package"
+					],
+					[
+						"syntax mark",
+						"Set Syntax: MultiMarkdown"
+					],
+					[
+						"syntax markd",
+						"Set Syntax: Markdown"
+					],
+					[
+						"therm",
+						"Themr: List themes"
+					],
+					[
+						"the",
+						"Themr: List themes"
+					],
+					[
+						"themr",
+						"Themr: List themes"
+					],
+					[
+						"key bind",
+						"Preferences: Key Bindings - Default"
+					],
+					[
+						"preference",
+						"Preferences: Settings - User"
+					],
+					[
+						"key bindingus",
+						"Preferences: Key Bindings - User"
+					],
+					[
+						"color",
+						"Color Picker"
+					],
+					[
+						"package list",
+						"Package Control: List Packages"
+					],
+					[
+						"package instal",
+						"Package Control: Install Package"
+					],
+					[
+						"package",
+						"Preferences: Browse Packages"
+					],
+					[
+						"C#",
+						"Set Syntax: C#"
+					],
+					[
+						"c#",
+						"Set Syntax: C#"
+					],
+					[
+						"key bin",
+						"Preferences: Key Bindings - Default"
+					],
+					[
+						"lisp",
+						"Set Syntax: Lisp"
+					],
+					[
+						"remove pa",
+						"Package Control: Remove Package"
+					],
+					[
+						"install ",
+						"Package Control: Install Package"
+					],
+					[
+						"syn li",
+						"Set Syntax: Lisp"
+					],
+					[
+						"package remove packa",
+						"Package Control: Remove Package"
+					],
+					[
+						"alignment ",
+						"Preferences: Alignment Key Bindings – Default"
+					],
+					[
+						"key",
+						"Preferences: Key Bindings - User"
+					],
+					[
+						"exp",
+						"ExpandRegion"
+					],
+					[
+						"expand",
+						"ExpandRegion"
+					],
+					[
+						"autofile",
+						"AutoFileName: Default Settings"
+					],
+					[
+						"instl",
+						"Package Control: Install Package"
+					],
+					[
+						"instla",
+						"Package Control: Install Package"
+					],
+					[
+						"instll",
+						"Package Control: Install Package"
+					],
+					[
+						"ahk",
+						"AutoHotkey - Compile"
+					],
+					[
+						"inst",
+						"Package Control: Install Package"
+					],
+					[
+						"alignment",
+						"Preferences: Alignment Key Bindings – Default"
+					],
+					[
+						"anf",
+						"ANF: New File"
+					],
+					[
+						"python",
+						"Anaconda: Goto Python object"
+					],
+					[
+						"anaconda",
+						"Anaconda: Run Current File Tests"
+					],
+					[
+						"anaconda: ",
+						"Anaconda: Autoformat PEP8 Errors"
+					],
+					[
+						"mark",
+						"Markdown Preview: Preview in Browser"
+					],
+					[
+						"intall",
+						"Package Control: Install Package"
+					],
+					[
+						"package in",
+						"Package Control: Install Package"
+					]
+				],
+				"width": 536.0
+			},
+			"console":
+			{
+				"height": 126.0,
+				"history":
+				[
+					"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+				]
+			},
+			"distraction_free":
+			{
+				"menu_visible": true,
+				"show_minimap": false,
+				"show_open_files": false,
+				"show_tabs": false,
+				"side_bar_visible": false,
+				"status_bar_visible": false
+			},
+			"expanded_folders":
+			[
+				"/E/NetEase/Codes/Python"
+			],
+			"file_history":
+			[
+				"/E/NetEase/Codes/Python/160713_ChangeFileNameByTex.py",
+				"/E/NetEase/Codes/AutoHotkey Scripts/HelloAHK.ahk",
+				"/D/Apps/Sublime Text/Data/Packages/User/Preferences.sublime-settings",
+				"/E/Projects/160713_dm57_音效需求/output/normalized/namelist.txt",
+				"/C/Users/hln4446/Desktop/normalized/namelist.txt",
+				"/E/NetEase/Documents/记录/160616_网易活动记录.boo",
+				"/D/Apps/Sublime Text/Data/Packages/Default/Default (Windows).sublime-keymap",
+				"/D/Apps/Sublime Text/Data/Packages/Default/Preferences.sublime-settings",
+				"/E/NetEase/Codes/GitHub/LearningGit/readme.txt",
+				"/D/Apps/Sublime Text/Data/Packages/User/Default (Windows).sublime-keymap",
+				"/D/Apps/Sublime Text/Data/Packages/User/Distraction Free.sublime-settings",
+				"/D/Apps/Sublime Text/Data/Packages/SideBarEnhancements/Side Bar.sublime-settings",
+				"/D/Apps/Sublime Text/Data/Packages/User/Side Bar.sublime-settings",
+				"/D/Apps/Sublime Text/Data/Packages/User/SideBarEnhancements/Open With/Side Bar.sublime-menu",
+				"/D/Apps/tool_full/neox-20160714-195609-0.dmp",
+				"/D/dm57/client/res/char/hero/10040/10040.gim",
+				"/E/NetEase/Codes/GitHub/SublimeTextConfig/README.md",
+				"/E/NetEase/Codes/GitHub/SublimeTextConfig/.gitignore",
+				"/E/NetEase/Codes/GitHub/SublimeTextConfig/Python.gitignore",
+				"/E/NetEase/Codes/GitHub/SublimeTextConfig/PackageControl.gitignore",
+				"/E/NetEase/Codes/GitHub/SublimeTextConfig/README (2).md",
+				"/D/Apps/Sublime Text/Data/Packages/User/Git.sublime-settings",
+				"/E/NetEase/Codes/GitHub/LearningGit/160714_NewLearningNote.md",
+				"/D/Apps/Sublime Text/Data/Packages/GitGutter/GitGutter.sublime-settings",
+				"/E/NetEase/Codes/GitHub/SublimeTextConfig/.git/sourcetreeconfig",
+				"/E/NetEase/Codes/GitHub/SublimeTextConfig/.git/config",
+				"/C/Users/hzhulei15/Desktop/TODO",
+				"/C/Users/hzhulei15/Desktop/testPlainTasks.txt",
+				"/D/Apps/Sublime Text/Data/Packages/PlainNotes/Notes.sublime-settings",
+				"/D/Apps/Sublime Text/Data/Packages/User/bh_core.sublime-settings",
+				"/E/NetEase/Codes/Python/160427_按文本批量重命名文件/0427_按给定文本批量重命名文件.py",
+				"/E/Test.md",
+				"/D/Apps/Sublime Text/Data/Packages/BracketHighlighter/bh_core.sublime-settings",
+				"/D/Apps/Sublime Text/Data/Packages/User/Serial Number",
+				"/D/Apps/Sublime Text/Data/Packages/User/SublimeTmpl/templates/python.tmpl",
+				"/D/Apps/Sublime Text/Data/Packages/SublimeTmpl/SublimeTmpl.sublime-settings",
+				"/D/Apps/Sublime Text/Data/Packages/User/ChangeAllIndentation_To2Sapces.sublime-macro",
+				"/D/Apps/Sublime Text/Data/Packages/User/ChangeAllIndentation_To4Sapces.sublime-macro",
+				"/E/NetEase/Codes/Python/160714_PackageTest_Tmpl.py",
+				"/D/Apps/Sublime Text/Data/Packages/SublimeTmpl/Default (Windows).sublime-keymap",
+				"/D/Apps/Sublime Text/Data/Packages/SublimeTmpl/Main.sublime-menu",
+				"/D/Apps/Sublime Text/Data/Packages/SublimeTmpl/Default.sublime-commands",
+				"/D/Apps/Sublime Text/Data/Packages/User/SublimeTmpl.sublime-settings",
+				"/E/NetEase/Codes/Python/Old/hello.py",
+				"/E/NetEase/Codes/Python/Old/names.txt",
+				"/E/NetEase/Codes/Python/Old/test.py",
+				"/D/Apps/Sublime Text/Data/Installed Packages/Package Control.sublime-package",
+				"/E/NetEase/Codes/AutoHotkey Scripts/AlwaysShowMousePosition.ahk",
+				"/E/NetEase/Codes/Python/160713_renameFilenameList.txt",
+				"/E/NetEase/Codes/Python/Old/changTheNames - Protype.py",
+				"/E/NetEase/Codes/Python/160713_GenerateNumSequence.py",
+				"/E/NetEase/Codes/Python/160713_Hello_MyNewSublime.md",
+				"/D/Apps/Sublime Text/Data/Packages/User/Base File.sublime-settings",
+				"/D/Apps/Sublime Text/Data/Packages/Alignment/Default (Windows).sublime-keymap",
+				"/D/Apps/Sublime Text/Data/Packages/Alignment/Base File.sublime-settings",
+				"/D/Apps/Sublime Text/Data/Packages/Terminal/Base File.sublime-settings",
+				"/D/Apps/Sublime Text/Data/Packages/ExpandRegion/ExpandRegion.sublime-settings",
+				"/E/NetEase/Codes/sublDailyCodeProject.sublime-project",
+				"/E/NetEase/Codes/sublDailyCodeProject.sublime-workspace",
+				"/D/Apps/Sublime Text/Data/Packages/User/ExpandRegion.sublime-settings",
+				"/D/Apps/Sublime Text/Data/Packages/AutoFileName/autofilename.sublime-settings",
+				"/E/Downloads/sublime_text_3114.win.optimize.x64/Data/Packages/Alignment/Base File.sublime-settings",
+				"/E/Downloads/sublime_text_3114.win.optimize.x64/Data/Packages/Alignment/Default (Windows).sublime-keymap",
+				"/E/Downloads/sublime_text_3114.win.optimize.x64/Data/Packages/User/Default (Windows).sublime-keymap",
+				"/E/Downloads/sublime_text_3114.win.optimize.x64/Data/Packages/User/Base File.sublime-settings",
+				"/E/Downloads/sublime_text_3114.win.optimize.x64/Data/Packages/User/AdvancedNewFile.sublime-settings",
+				"/E/Downloads/sublime_text_3114.win.optimize.x64/Data/Packages/Default/Default (Windows).sublime-keymap",
+				"/E/Downloads/sublime_text_3114.win.optimize.x64/Data/Packages/User/Preferences.sublime-settings",
+				"/E/Downloads/sublime_text_3114.win.optimize.x64/Data/Packages/Anaconda/Anaconda.sublime-settings",
+				"/E/Downloads/sublime_text_3114.win.optimize.x64/Data/Packages/User/Python.sublime-settings",
+				"/E/Downloads/sublime_text_3114.win.optimize.x64/Data/Packages/User/Anaconda.sublime-settings"
+			],
+			"find":
+			{
+				"height": 28.0
+			},
+			"find_in_files":
+			{
+				"height": 98.0,
+				"where_history":
+				[
+					""
+				]
+			},
+			"find_state":
+			{
+				"case_sensitive": false,
+				"find_history":
+				[
+					"Delay",
+					"1",
+					"su",
+					"\\",
+					"E:\\\\Projects\\\\160713_dm57_音效需求\\\\output\\\\normalized\\\\",
+					".wav",
+					"\\",
+					"draw",
+					"width",
+					"side.bar",
+					"evernote",
+					"印象",
+					"1",
+					"wrap",
+					"as",
+					"copy.*",
+					"copy.*as",
+					"copy_as",
+					"self_02",
+					"atk1",
+					"atk",
+					"unix",
+					"done",
+					"\\\"close\\\"\\:.*\\\"\\(",
+					"\\\"close\\\"\\:.*\\\"\\(\\\"",
+					"\\\"close\\\"\\:.*\\\"",
+					"ctrl+/",
+					"ctrl+",
+					":",
+					"*.",
+					"control+alt+p",
+					"control+alt",
+					"Send",
+					"        \n",
+					"Send",
+					"Return",
+					"\n; 顺便禁用 Win-U 的功能，以免误操作\n#u::Return      \n",
+					"ASC",
+					":*:",
+					"ddd",
+					"WinGetClass",
+					"Send",
+					"WinGetClass",
+					"e",
+					"Delay.*",
+					"ctrl_n",
+					"space"
+				],
+				"highlight": true,
+				"in_selection": false,
+				"preserve_case": false,
+				"regex": false,
+				"replace_history":
+				[
+					"\\\\",
+					"C:\\Users\\hln4446\\Desktop\\normalized\\",
+					"",
+					"\\\\",
+					"Delay 50"
+				],
+				"reverse": false,
+				"show_context": true,
+				"use_buffer2": true,
+				"whole_word": false,
+				"wrap": true
+			},
+			"groups":
+			[
+				{
+					"selected": 0,
+					"sheets":
+					[
+						{
+							"buffer": 0,
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 0,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										0,
+										0
+									]
+								],
+								"settings":
+								{
+									"WordCount":
+									{
+										"changes": 245,
+										"count": 0,
+										"modified": false,
+										"selection": false,
+										"status": -1,
+										"syntax": "plain text"
+									},
+									"apply_syntax_touched": true,
+									"auto_name": "",
+									"bracket_highlighter.busy": false,
+									"bracket_highlighter.locations":
+									{
+										"close":
+										{
+										},
+										"icon":
+										{
+										},
+										"open":
+										{
+										},
+										"unmatched":
+										{
+										}
+									},
+									"bracket_highlighter.regions":
+									[
+										"bh_default",
+										"bh_default_center",
+										"bh_default_open",
+										"bh_default_close",
+										"bh_default_content",
+										"bh_double_quote",
+										"bh_double_quote_center",
+										"bh_double_quote_open",
+										"bh_double_quote_close",
+										"bh_double_quote_content",
+										"bh_tag",
+										"bh_tag_center",
+										"bh_tag_open",
+										"bh_tag_close",
+										"bh_tag_content",
+										"bh_round",
+										"bh_round_center",
+										"bh_round_open",
+										"bh_round_close",
+										"bh_round_content",
+										"bh_curly",
+										"bh_curly_center",
+										"bh_curly_open",
+										"bh_curly_close",
+										"bh_curly_content",
+										"bh_regex",
+										"bh_regex_center",
+										"bh_regex_open",
+										"bh_regex_close",
+										"bh_regex_content",
+										"bh_square",
+										"bh_square_center",
+										"bh_square_open",
+										"bh_square_close",
+										"bh_square_content",
+										"bh_angle",
+										"bh_angle_center",
+										"bh_angle_open",
+										"bh_angle_close",
+										"bh_angle_content",
+										"bh_c_define",
+										"bh_c_define_center",
+										"bh_c_define_open",
+										"bh_c_define_close",
+										"bh_c_define_content",
+										"bh_unmatched",
+										"bh_unmatched_center",
+										"bh_unmatched_open",
+										"bh_unmatched_close",
+										"bh_unmatched_content",
+										"bh_single_quote",
+										"bh_single_quote_center",
+										"bh_single_quote_open",
+										"bh_single_quote_close",
+										"bh_single_quote_content"
+									],
+									"default_dir": "E:\\NetEase\\Codes\\AutoHotkey Scripts",
+									"syntax": "Packages/Text/Plain text.tmLanguage",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 0,
+							"type": "text"
+						}
+					]
+				}
+			],
+			"incremental_find":
+			{
+				"height": 28.0
+			},
+			"input":
+			{
+				"height": 38.0
+			},
+			"layout":
+			{
+				"cells":
+				[
+					[
+						0,
+						0,
+						1,
+						1
+					]
+				],
+				"cols":
+				[
+					0.0,
+					1.0
+				],
+				"rows":
+				[
+					0.0,
+					1.0
+				]
+			},
+			"menu_visible": false,
+			"output.exec":
+			{
+				"height": 132.0
+			},
+			"output.find_results":
+			{
+				"height": 0.0
+			},
+			"output.git":
+			{
+				"height": 128.0
+			},
+			"pinned_build_system": "Packages/Python/Python.sublime-build",
+			"position": "0,0,1,-1,-1,-1,-1,879,256,188,1282",
+			"project": "sublDailyCodeProject.sublime-project",
+			"replace":
+			{
+				"height": 52.0
+			},
+			"save_all_on_build": true,
+			"select_file":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"select_project":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"select_symbol":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"selected_group": 0,
+			"settings":
+			{
+			},
+			"show_minimap": true,
+			"show_open_files": true,
+			"show_tabs": true,
+			"side_bar_visible": false,
+			"side_bar_width": 212.0,
+			"status_bar_visible": true,
+			"template_settings":
+			{
+			},
+			"window_id": 1,
+			"workspace_name": "/E/NetEase/Codes/sublDailyCodeProject.sublime-workspace"
+		}
+	],
+	"workspaces":
+	{
+		"recent_workspaces":
+		[
+			"/E/NetEase/Codes/sublDailyCodeProject.sublime-workspace"
+		]
+	}
+}
